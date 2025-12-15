@@ -1,0 +1,29 @@
+﻿#include "warrior.h"
+#include "monster.h"
+#include <string>
+#include <iostream>
+using namespace std;
+
+Warrior::Warrior(string nickname) :Player(nickname) {
+	this->job_name = "전사";
+	this->HP = 80;
+	this->power = 12;
+	this->defence = 15;
+	cout << this->job_name << "로 전직하셨습니다!" << endl;
+}
+void Warrior::attack() {
+	cout << this->job_name << " " << this->nickname << "의 공격! 파워 슬래시!" << endl;
+}
+void Warrior::attack(Monster* monster) {
+	cout << this->job_name << " " << this->nickname << "의 공격! 파워 슬래시!" << endl;
+	int damage = this->power - monster->getDefence();
+	if (damage <= 0) damage = 1;
+	Sleep(500);
+	cout << monster->getName() << "에게 명중! " << damage << "의 피해를 입혔다!" << endl;
+	Sleep(500);
+	monster->setHP(monster->getHP() - damage);
+	if (monster->getHP() > 0) {
+		cout << monster->getName() << "의 남은 HP : " << monster->getHP() << endl;
+		Sleep(500);
+	}
+}
