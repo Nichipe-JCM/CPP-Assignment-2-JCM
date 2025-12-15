@@ -15,7 +15,7 @@ void Thief::attack() {
 }
 void Thief::attack(Monster* monster) {
 	cout << this->job_name << " " << this->nickname << "의 공격! 퀸터플 슬래시!" << endl;
-	int damage = (this->power / 5) - monster->getDefence();
+	int damage = (this->power / 5 - monster->getDefence()) / 5;
 	if (damage <= 0) damage = 1;
 	Sleep(500);
 	for (int i = 0; i < 5; i++) {

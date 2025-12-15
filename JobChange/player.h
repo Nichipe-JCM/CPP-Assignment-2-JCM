@@ -10,6 +10,7 @@ class Monster;
 class Player {
 public:
     Player(string nickname);
+    virtual ~Player() {};
 
     virtual void attack() = 0;
     virtual void attack(Monster* monster) = 0;

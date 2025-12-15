@@ -16,7 +16,7 @@ void Archer::attack() {
 }
 void Archer::attack(Monster* monster) {
 	cout << this->job_name << " " << this->nickname << "의 공격! 트리플 샷!" << endl;
-	int damage = (this->power / 3) - monster->getDefence();
+	int damage = (this->power - monster->getDefence()) / 3;
 	if (damage <= 0) damage = 1;
 	Sleep(500);
 	for (int i = 0; i < 3; i++) {
