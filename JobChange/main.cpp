@@ -62,7 +62,7 @@ int main() {
     cin >> monname;
     monster = new Monster(monname); // 몬스터의 이름을 입력받아 몬스터 클래스의 객체 생성
     cout << "전투 발생! " << player->getNickname() << "의 선공!" << endl;
-    while (player->getHP() != 0 && monster->getHP() != 0) { // 플레이어와 몬스터 둘 중 하나의 체력이 0이 될때까지 반복
+    while (player->getHP() > 0 && monster->getHP() > 0) { // 플레이어와 몬스터 둘 중 하나의 체력이 0이 될때까지 반복
         player->attack(monster);
         if (monster->getHP() <= 0) break; // 플레이어의 공격 후 몬스터의 체력이 0이하면 즉시 탈출
         monster->attack(player);
